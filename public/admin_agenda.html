@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agenda | Amys Segura &amp; Bella</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/estilos.css" rel="stylesheet">
   </head>
   <body class="bg-light">
     <main class="container py-5">
@@ -13,6 +14,7 @@
           <h1 class="h3">Agenda administrativa - Amys Segura &amp; Bella</h1>
           <p>Bienvenida/o, <strong id="nombreUsuario"></strong></p>
           <p>Rol: <span id="rolUsuario"></span></p>
+          <a id="enlaceCatalogo" class="btn btn-primary d-none mb-3" href="/admin_catalogo.html">Administrar catálogo de servicios</a>
           <button id="botonCerrarSesion" type="button" class="btn btn-outline-danger">Cerrar sesión</button>
         </div>
       </section>
@@ -23,6 +25,9 @@
       if (usuario) {
         document.getElementById('nombreUsuario').textContent = usuario.nombre;
         document.getElementById('rolUsuario').textContent = usuario.rol;
+        if (usuario.rol === 'administrador') {
+          document.getElementById('enlaceCatalogo').classList.remove('d-none');
+        }
       }
       document.getElementById('botonCerrarSesion').addEventListener('click', window.cerrarSesion);
     </script>

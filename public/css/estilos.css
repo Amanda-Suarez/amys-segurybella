@@ -1,0 +1,133 @@
+:root {
+  --amys-rosa: #f7e9ed;
+  --amys-rosa-intenso: #c56a86;
+  --amys-vino: #78364f;
+  --amys-vino-oscuro: #56263a;
+  --amys-neutro: #fbf8f6;
+  --amys-texto: #342b2e;
+  --bs-primary: #78364f;
+  --bs-primary-rgb: 120, 54, 79;
+  --bs-body-color: #342b2e;
+  --bs-body-bg: #fbf8f6;
+}
+
+body {
+  color: var(--amys-texto);
+  background-color: var(--amys-neutro);
+}
+
+.navbar-brand {
+  color: var(--amys-vino);
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: var(--amys-rosa-intenso);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--amys-vino);
+  --bs-btn-border-color: var(--amys-vino);
+  --bs-btn-hover-bg: var(--amys-vino-oscuro);
+  --bs-btn-hover-border-color: var(--amys-vino-oscuro);
+  --bs-btn-active-bg: var(--amys-vino-oscuro);
+  --bs-btn-active-border-color: var(--amys-vino-oscuro);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--amys-vino);
+  --bs-btn-border-color: var(--amys-vino);
+  --bs-btn-hover-bg: var(--amys-vino);
+  --bs-btn-hover-border-color: var(--amys-vino);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--amys-rosa-intenso);
+  box-shadow: 0 0 0 0.25rem rgba(197, 106, 134, 0.2);
+}
+
+.filtro-card,
+.servicio-card,
+.admin-card {
+  border: 1px solid #eee1e4;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(86, 38, 58, 0.06);
+}
+
+.servicio-card {
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.75rem 1.75rem rgba(86, 38, 58, 0.12);
+}
+
+.servicio-imagen {
+  position: relative;
+  display: grid;
+  min-height: 190px;
+  overflow: hidden;
+  place-items: center;
+  background: linear-gradient(135deg, var(--amys-rosa), #edd2dc);
+}
+
+.servicio-imagen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.servicio-imagen__respaldo,
+.empty-state__marca {
+  display: grid;
+  width: 5rem;
+  height: 5rem;
+  place-items: center;
+  border: 1px solid rgba(120, 54, 79, 0.15);
+  border-radius: 50%;
+  color: var(--amys-vino);
+  background-color: rgba(255, 255, 255, 0.68);
+  font-family: Georgia, serif;
+  font-size: 2rem;
+}
+
+.servicio-card .badge {
+  color: var(--amys-vino);
+  background-color: var(--amys-rosa);
+}
+
+.servicio-descripcion {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.servicio-precio {
+  color: var(--amys-vino);
+  font-size: 1.15rem;
+}
+
+.empty-state__marca {
+  width: 4rem;
+  height: 4rem;
+}
+
+.tabla-catalogo th {
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .servicio-card {
+    transition: none;
+  }
+
+  .servicio-card:hover {
+    transform: none;
+  }
+}

@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const { probarConexion } = require('./src/config/db');
 const authRoutes = require('./src/routes/authRoutes');
 const perfilRoutes = require('./src/routes/perfilRoutes');
+const servicioRoutes = require('./src/routes/servicioRoutes');
 
 const app = express();
 const puerto = Number(process.env.PORT || 3000);
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/perfil', perfilRoutes);
+app.use('/api', servicioRoutes);
 
 app.get('/api/salud', async (req, res) => {
   try {
