@@ -13,6 +13,26 @@
   const notaCancelacion = document.getElementById('notaCancelacion');
 
   document.getElementById('cerrarSesionComprobante').addEventListener('click', window.cerrarSesion);
+  const linksComprobante = document.getElementById('linksComprobante');
+  if (usuario.rol === 'cliente') {
+    const enlace = document.createElement('a');
+    enlace.className = 'nav-link';
+    enlace.href = '/mis_citas.html';
+    enlace.textContent = 'Mis citas';
+    linksComprobante.prepend(enlace);
+  } else if (usuario.rol === 'administrador' || usuario.rol === 'recepcionista') {
+    const enlace = document.createElement('a');
+    enlace.className = 'nav-link';
+    enlace.href = '/admin_agenda.html';
+    enlace.textContent = 'Agenda';
+    linksComprobante.prepend(enlace);
+  } else if (usuario.rol === 'especialista') {
+    const enlace = document.createElement('a');
+    enlace.className = 'nav-link';
+    enlace.href = '/agenda_especialista.html';
+    enlace.textContent = 'Mi agenda';
+    linksComprobante.prepend(enlace);
+  }
   botonImprimir.addEventListener('click', () => window.print());
 
   function mostrarMensaje(texto, esExito) {

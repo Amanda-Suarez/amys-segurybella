@@ -8,10 +8,19 @@
     <link href="/css/estilos.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
       <div class="container">
         <a class="navbar-brand fw-semibold" href="/servicios.html">Amys Segura &amp; Bella</a>
-        <button id="cerrarSesionReserva" class="btn btn-outline-primary" type="button">Cerrar sesión</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navegacionReserva" aria-controls="navegacionReserva" aria-expanded="false" aria-label="Mostrar navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navegacionReserva">
+          <div class="navbar-nav ms-auto align-items-lg-center">
+            <a class="nav-link" href="/servicios.html">Inicio</a>
+            <a class="nav-link" href="/mis_citas.html">Mis Citas</a>
+            <button id="cerrarSesionReserva" class="btn btn-outline-primary ms-lg-3 mt-2 mt-lg-0" type="button">Cerrar sesión</button>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -103,6 +112,7 @@
     </main>
 
     <script src="/js/auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/js/reservar.js"></script>
   </body>
 </html>
