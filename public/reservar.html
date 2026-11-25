@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reservar turno | Amys Segura &amp; Bella</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/estilos.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar bg-white border-bottom">
+      <div class="container">
+        <a class="navbar-brand fw-semibold" href="/servicios.html">Amys Segura &amp; Bella</a>
+        <button id="cerrarSesionReserva" class="btn btn-outline-primary" type="button">Cerrar sesión</button>
+      </div>
+    </nav>
+
+    <main class="container py-4 py-lg-5">
+      <div class="mb-4">
+        <p class="text-uppercase text-secondary small mb-1">Agenda tu visita</p>
+        <h1 class="h2">Reservar turno</h1>
+      </div>
+      <div id="mensajeReserva" class="alert d-none" role="alert" aria-live="polite"></div>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <section class="card admin-card h-100">
+            <div class="card-body p-4">
+              <h2 class="h5">Tu selección</h2>
+              <p id="servicioBase" class="text-secondary">Cargando servicio...</p>
+              <div id="opcionesServicios" class="d-grid gap-2"></div>
+              <hr>
+              <dl class="row mb-0">
+                <dt class="col-7">Duración total</dt>
+                <dd id="duracionTotal" class="col-5 text-end">0 minutos</dd>
+                <dt class="col-7">Total</dt>
+                <dd id="precioTotal" class="col-5 text-end fw-semibold servicio-precio">$0.00</dd>
+              </dl>
+            </div>
+          </section>
+        </div>
+
+        <div class="col-12 col-lg-7">
+          <section class="card admin-card">
+            <div class="card-body p-4">
+              <form id="formReserva">
+                <div class="mb-3">
+                  <label for="especialista" class="form-label">Especialista</label>
+                  <select id="especialista" class="form-select" required>
+                    <option value="">Selecciona un especialista</option>
+                  </select>
+                </div>
+                <div class="mb-4">
+                  <label for="fechaCita" class="form-label">Fecha</label>
+                  <input id="fechaCita" type="date" class="form-control" required>
+                  <div class="form-text">Puedes reservar hasta 60 días adelante.</div>
+                </div>
+
+                <fieldset class="mb-3">
+                  <legend class="form-label">Modalidad</legend>
+                  <div class="d-flex flex-wrap gap-3">
+                    <div class="form-check">
+                      <input id="modalidadEstudio" name="modalidad" class="form-check-input" type="radio" value="estudio" checked>
+                      <label class="form-check-label" for="modalidadEstudio">En el estudio</label>
+                    </div>
+                    <div class="form-check">
+                      <input id="modalidadDomicilio" name="modalidad" class="form-check-input" type="radio" value="domicilio">
+                      <label class="form-check-label" for="modalidadDomicilio">A domicilio</label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div id="camposDomicilio" class="row g-3 mb-3 d-none">
+                  <div class="col-12 col-md-5">
+                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <select id="ciudad" class="form-select" disabled>
+                      <option value="">Selecciona una ciudad</option>
+                      <option value="Otavalo">Otavalo</option>
+                      <option value="Ibarra">Ibarra</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-7">
+                    <label for="direccionServicio" class="form-label">Dirección del servicio</label>
+                    <input id="direccionServicio" type="text" class="form-control" minlength="10" maxlength="255" autocomplete="street-address" disabled>
+                    <div class="form-text">Escribe una dirección de al menos 10 caracteres.</div>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <label for="horaCita" class="form-label">Hora disponible</label>
+                  <select id="horaCita" class="form-select" required disabled>
+                    <option value="">Selecciona especialista y fecha</option>
+                  </select>
+                  <div id="estadoDisponibilidad" class="form-text" aria-live="polite"></div>
+                </div>
+
+                <button id="botonReservar" type="submit" class="btn btn-primary w-100">Reservar cita</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/reservar.js"></script>
+  </body>
+</html>

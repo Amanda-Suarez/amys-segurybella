@@ -131,3 +131,18 @@ body {
     transform: none;
   }
 }
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .admin-card {
+    border: 0;
+    box-shadow: none;
+  }
+}
