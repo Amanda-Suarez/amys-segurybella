@@ -9,6 +9,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const perfilRoutes = require('./src/routes/perfilRoutes');
 const servicioRoutes = require('./src/routes/servicioRoutes');
 const citaRoutes = require('./src/routes/citaRoutes');
+const agendaRoutes = require('./src/routes/agendaRoutes');
 const disponibilidadRoutes = require('./src/routes/disponibilidadRoutes');
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/perfil', perfilRoutes);
 app.use('/api', servicioRoutes);
+app.use('/api/citas', agendaRoutes);
 app.use('/api/citas', citaRoutes);
 app.use('/api', disponibilidadRoutes);
 
