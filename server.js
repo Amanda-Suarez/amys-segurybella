@@ -11,6 +11,8 @@ const servicioRoutes = require('./src/routes/servicioRoutes');
 const citaRoutes = require('./src/routes/citaRoutes');
 const agendaRoutes = require('./src/routes/agendaRoutes');
 const disponibilidadRoutes = require('./src/routes/disponibilidadRoutes');
+const reporteRoutes = require('./src/routes/reporteRoutes');
+const horarioRoutes = require('./src/routes/horarioRoutes');
 
 const app = express();
 const puerto = Number(process.env.PORT || 3000);
@@ -25,6 +27,8 @@ app.use('/api', servicioRoutes);
 app.use('/api/citas', agendaRoutes);
 app.use('/api/citas', citaRoutes);
 app.use('/api', disponibilidadRoutes);
+app.use('/api/reportes', reporteRoutes);
+app.use('/api/horarios', horarioRoutes);
 
 app.get('/api/salud', async (req, res) => {
   try {

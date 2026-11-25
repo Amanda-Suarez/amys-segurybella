@@ -22,7 +22,12 @@
 
   document.getElementById('nombreUsuario').textContent = `${usuario.nombre} · ${usuario.rol}`;
   document.getElementById('cerrarSesionAdmin').addEventListener('click', window.cerrarSesion);
-  if (usuario.rol === 'administrador') document.getElementById('enlaceCatalogo').classList.remove('d-none');
+  if (usuario.rol === 'administrador') {
+    document.getElementById('enlaceCatalogo').classList.remove('d-none');
+    document.getElementById('enlaceHorarios').classList.remove('d-none');
+  } else {
+    document.getElementById('enlaceReportes').textContent = 'Reporte diario';
+  }
 
   function mostrarMensaje(texto, esExito) {
     mensaje.textContent = texto;
